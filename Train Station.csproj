@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="GamePath.targets" />
+	<PropertyGroup>
+		<ProjectName>Train Station</ProjectName>
+		<AssemblyName>TrainStation</AssemblyName>
+		<Version>1.0.0</Version>
+		<TargetFramework>net6.0</TargetFramework>
+		<ProjectDir>$([System.IO.Path]::Combine($(MSBuildThisFileDirectory), $(ProjectName)))</ProjectDir>
+		<GameModsPath>$([System.IO.Path]::Combine($(GamePath), 'Mods', $(ProjectName)))</GameModsPath>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.0" />
+	</ItemGroup>
+
+	<Target Name="Transport Station content packs" AfterTargets="Build">
+		<PropertyGroup>
+			<ProjectDir>$(MSBuildThisFileDirectory)</ProjectDir>
+			<GameModsPath>$([System.IO.Path]::Combine($(GamePath), 'Mods'))</GameModsPath>
+		</PropertyGroup>
+		<ItemGroup>
+			<TFTransportStation Include="$(ProjectDir)[TF] $(ProjectName)/**/*.*" />
+		</ItemGroup>
+		<Copy SourceFiles="@(TFTransportStation)" DestinationFolder="$(GameModsPath)/$(ProjectName)/[TF] $(ProjectName)/%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>
