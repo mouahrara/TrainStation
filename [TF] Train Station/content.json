@@ -1,0 +1,254 @@
+{
+	"Format": "1.0.0",
+	"Stations":
+	[
+		{
+			"Id": "mouahrara.TFTrainStation_Train_Railroad",
+			"DisplayName": "[mouahrara.TransportFramework_LocalizedStardewValley]",
+			"Location": "Railroad",
+			"Tile": { "X": 30, "Y": 41 },
+			"Direction": "down",
+			"Price": 0,
+			"Network": "Train",
+			"AccessTiles":
+			[
+				{ "X": 32, "Y": 40 }
+			],
+			"Sprites":
+			[
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "assets/LooseSprites/Train",
+						"SourceRectangle": { "X": 0, "Y": 0, "Width": 112, "Height": 63 },
+						"Position": { "X": 31, "Y": 40.5 }
+					},
+					"CollisionBoxes":
+					[
+						{ "X": 0, "Y": 1.9375, "Width": 7, "Height": 2 }
+					]
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "assets/LooseSprites/Train",
+						"SourceRectangle": { "X": 0, "Y": 0, "Width": 112, "Height": 63 },
+						"Position": { "X": 38, "Y": 40.5 }
+					},
+					"CollisionBoxes":
+					[
+						{ "X": 0, "Y": 1.9375, "Width": 7, "Height": 2 }
+					]
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "assets/LooseSprites/Train",
+						"SourceRectangle": { "X": 0, "Y": 0, "Width": 112, "Height": 63 },
+						"Position": { "X": 45, "Y": 40.5 }
+					},
+					"CollisionBoxes":
+					[
+						{ "X": 0, "Y": 1.9375, "Width": 7, "Height": 2 }
+					]
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "assets/LooseSprites/Train",
+						"SourceRectangle": { "X": 112, "Y": 0, "Width": 122, "Height": 63 },
+						"Position": { "X": 52, "Y": 40.5 }
+					},
+					"CollisionBoxes":
+					[
+						{ "X": 0, "Y": 1.9375, "Width": 7.625, "Height": 2 }
+					]
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "LooseSprites/Cursors",
+						"SourceRectangle": { "X": 192, "Y": 576, "Width": 20, "Height": 20 },
+						"Position": { "X": 52.4375, "Y": 43.125 },
+						"LayerDepth": 44.6
+					}
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "LooseSprites/Cursors",
+						"SourceRectangle": { "X": 192, "Y": 576, "Width": 20, "Height": 20 },
+						"Position": { "X": 54.875, "Y": 43.125 },
+						"LayerDepth": 44.6
+					}
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "LooseSprites/Cursors",
+						"SourceRectangle": { "X": 192, "Y": 576, "Width": 20, "Height": 20 },
+						"Position": { "X": 56.2525, "Y": 43.125 },
+						"LayerDepth": 44.6
+					}
+				},
+				{
+					"Type": "Unlocked",
+					"Data":
+					{
+						"TextureName": "TileSheets/animations",
+						"SourceRectangle": { "X": 0, "Y": 1600, "Width": 64, "Height": 128 },
+						"Position": { "X": 57.3, "Y": 39 },
+						"Interval": 100,
+						"AnimationLength": 8,
+						"Scale": 0.25
+					}
+				}
+			],
+			"Conditions":
+			[
+				{
+					"Query": "DAYS_PLAYED 31",
+					"LockedMessage": "[LocalizedText Strings\\Locations:MineCart_OutOfOrder]",
+					"Update": "OnDayStart"
+				},
+				{
+					"Query": "!mouahrara.TrainStation_IsTrainDay",
+					"LockedMessage": "[mouahrara.TransportFramework_i18n LockedMessage]",
+					"Update": "OnDayStart"
+				}
+			],
+			"Events":
+			[
+				{
+					"Type": "Departure",
+					"Script": "continue
+								/follow
+								/? 0 0 0
+								/skippable
+								/mouahrara.TransportFramework_query \"RANDOM 0.33\" 3 7
+								/mouahrara.TransportFramework_moveTo farmer 35 41 2 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -8 none 0 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -8 none 0 none 0 200 shake_intensity 0
+								/mouahrara.TransportFramework_query \"RANDOM 0.5\" 3 3
+								/mouahrara.TransportFramework_moveTo farmer 42 41 2 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -7 none 0 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -7 none 0 none 0 200 shake_intensity 0
+								/mouahrara.TransportFramework_moveTo farmer 49 41 2 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -6 none 0 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -6 none 0 none 0 200 shake_intensity 0
+								/playSound stoneStep
+								/mouahrara.TransportFramework_hideActor farmer
+								/playMusic none
+								/playSound doorClose
+								/pause 420
+								/fade
+								/mouahrara.TransportFramework_hideWorldCharacters
+								/pause 200
+								/beginSimultaneousCommand
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/endSimultaneousCommand
+								/pause 1000
+								/beginSimultaneousCommand
+								/mouahrara.TransportFramework_playSound trainLoop 60 0.5
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -8 none 0 none 0 0 acceleration 0.05 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -7 none 0 none 0 0 acceleration 0.05 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -6 none 0 none 0 0 acceleration 0.05 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -5 -5 none 0 none 0 0 acceleration 0.05 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -4 -4 none 0 none 0 0 acceleration 0.05 0 rotation_change_change 0.001
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -3 -3 none 0 none 0 0 acceleration 0.05 0 rotation_change_change 0.001
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -2 -2 none 0 none 0 0 acceleration 0.05 0 rotation_change_change 0.001
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -1 -1 none 0 none 0 0 acceleration 0.05 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -8 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -7 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -6 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -5 -5 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -4 -5 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -3 -5 >= 56 none 0 0 shake_intensity 1
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -2 -5 >= 56 none 0 0 shake_intensity 1
+								/endSimultaneousCommand
+								/pause 3600
+								/mouahrara.TransportFramework_changeSound -1 none -0.25
+								/globalFade 0.01
+								/viewport -1000 -1000
+								/end"
+				},
+				{
+					"Type": "Arrival",
+					"Script": "none
+								/follow
+								/farmer 0 43 1
+								/mouahrara.TransportFramework_hideWorldCharacters
+								/mouahrara.TransportFramework_hideActor farmer
+								/beginSimultaneousCommand
+								/mouahrara.TransportFramework_playSound trainLoop 60 2
+								/mouahrara.TransportFramework_removeTemporarySprites assets\\LooseSprites\\Train
+								/mouahrara.TransportFramework_removeTemporarySprites LooseSprites\\Cursors 192 576 20 20
+								/mouahrara.TransportFramework_temporaryAnimatedSprite assets\\LooseSprites\\Train 0 0 112 63 999999 1 1 -11 40.5 false false 44.5 0 white 1 0 0 0 motion 8 0 shake_intensity 1
+								/mouahrara.TransportFramework_temporaryAnimatedSprite assets\\LooseSprites\\Train 0 0 112 63 999999 1 1 -4 40.5 false false 44.5 0 white 1 0 0 0 motion 8 0 shake_intensity 1
+								/mouahrara.TransportFramework_temporaryAnimatedSprite assets\\LooseSprites\\Train 0 0 112 63 999999 1 1 3 40.5 false false 44.5 0 white 1 0 0 0 motion 8 0 shake_intensity 1
+								/mouahrara.TransportFramework_temporaryAnimatedSprite assets\\LooseSprites\\Train 112 0 122 63 999999 1 1 10 40.5 false false 44.5 0 white 1 0 0 0 motion 8 0 shake_intensity 1
+								/mouahrara.TransportFramework_temporaryAnimatedSprite LooseSprites\\Cursors 192 576 20 20 999999 1 1 10.4375 43.125 false false 44.6 0 white 1 0 0 0 motion 8 0 shake_intensity 1 rotation 5.45 rotation_change 0.14
+								/mouahrara.TransportFramework_temporaryAnimatedSprite LooseSprites\\Cursors 192 576 20 20 999999 1 1 12.875 43.125 false false 44.6 0 white 1 0 0 0 motion 8 0 shake_intensity 1 rotation 5.45 rotation_change 0.14
+								/mouahrara.TransportFramework_temporaryAnimatedSprite LooseSprites\\Cursors 192 576 20 20 999999 1 1 14.2525 43.125 false false 44.6 0 white 1 0 0 0 motion 8 0 shake_intensity 1 rotation 5.45 rotation_change 0.14
+								/mouahrara.TransportFramework_temporaryAnimatedSprite TileSheets\\animations 0 1600 64 128 100 8 999999 15.3 39 false false 44.5 0 white 0.25 0 0 0 motion 8 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -8 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -7 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -6 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -5 -5 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -4 -5 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -3 -5 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -2 -5 > 21 none 0 0 shake_intensity 0
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -8 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -7 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -6 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -5 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -4 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true rotation_change_change -0.000377 stop_rotating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -3 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true rotation_change_change -0.000377 stop_rotating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -2 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true rotation_change_change -0.000377 stop_rotating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_changeTemporaryAnimatedSprite -1 -5 > 21 none 0 0 acceleration_change -0.0001175 0 stop_accelerating_when_velocity_is_zero true
+								/mouahrara.TransportFramework_destroyObjectsOnCollision -8 0 1.9375 28.625 2 true true
+								/mouahrara.TransportFramework_beginSyncWithTemporarySprite farmer
+								/endSimultaneousCommand
+								/skippable
+								/pause 4000
+								/mouahrara.TransportFramework_changeSound -1 none -0.25
+								/pause 3600
+								/beginSimultaneousCommand
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/playSound steam
+								/endSimultaneousCommand
+								/pause 1000
+								/globalFade 0.02
+								/viewport -1000 -1000
+								/end"
+				}
+			],
+			"Sound": "trainWhistle",
+			"IgnoreConditionsArrival": [ "all" ]
+		}
+	]
+}

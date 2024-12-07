@@ -1,0 +1,11 @@
+{
+	"Name": "[TF] Train Station",
+	"Author": "mouahrara",
+	"Version": "1.0.0",
+	"Description": "Train Station content pack for Transport Framework.",
+	"UniqueID": "mouahrara.TFTrainStation",
+	"UpdateKeys": [ "Nexus:???" ],
+	"ContentPackFor": {
+		"UniqueID": "mouahrara.TransportFramework"
+	}
+}

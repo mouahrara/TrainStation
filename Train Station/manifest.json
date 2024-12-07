@@ -1,0 +1,13 @@
+{
+	"Name": "Train Station (Iterum)",
+	"Author": "mouahrara",
+	"Version": "1.0.0",
+	"Description": "Add a train station to the railroad.",
+	"UniqueID": "mouahrara.TrainStation",
+	"EntryDll": "TrainStation.dll",
+	"MinimumApiVersion": "4.1.0",
+	"UpdateKeys": [ "Nexus:29912" ],
+	"Dependencies": [
+		{ "UniqueID": "mouahrara.TransportFramework", "IsRequired": true }
+	]
+}

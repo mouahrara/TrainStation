@@ -1,0 +1,7 @@
+﻿{
+	// GMCM
+	"GMCM.TicketMachineTilePointX.Title": "Ticket Machine X-Coordinate",
+	"GMCM.TicketMachineTilePointX.Tooltip": "The horizontal position of the ticket machine on the map.",
+	"GMCM.TicketMachineTilePointY.Title": "Ticket Machine Y-Coordinate",
+	"GMCM.TicketMachineTilePointY.Tooltip": "The vertical position of the ticket machine on the map."
+}
